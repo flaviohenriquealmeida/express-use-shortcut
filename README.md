@@ -8,9 +8,9 @@ Helper function that avoids calling `app.use` multiple times for middlewares. Yo
 npm install express-use-shortcut
 ```
 
-## Path less example
+## The problem
 
-Path less example without shortcut:
+The following code is very common in Express applications. It registers many middlewares:
 
 ```javascript
 const express = require('express')
@@ -30,7 +30,11 @@ app.use(passport.initialize());
 app.use(passport.session());
 ```
 
-Path less example with shortcut:
+It's not too hard to figure out that we are calling `app.use` too many times. 
+
+## express-use-shortcut usage 
+
+Let's see the previous example with `express-use-shortcut`:
 
 ```javascript
 const express = require('express')
@@ -52,9 +56,7 @@ use(
 )(app);
 ```
 
-## Middleware with paths
-
-You can pass the path and middleware within an array:
+If a path is necessary, you can pass the path and the middleware within an array:
 
 ```javascript
 use(
