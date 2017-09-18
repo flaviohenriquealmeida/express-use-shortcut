@@ -30,7 +30,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 ```
 
-Path less example With shortcut:
+Path less example with shortcut:
 
 ```javascript
 const express = require('express')
