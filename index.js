@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * Adds commas to a number
+ * register multiples middlewares
  * @param {middlewares} express midlewares or arrays including path and middleware
  * @return {function} use function
  */
