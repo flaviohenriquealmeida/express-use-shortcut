@@ -1,14 +1,16 @@
 # express-use-shortcut
 
-Shortcut of Express `app.use`. 
+Helper function that avoids calling `app.use` multiple times for middlewares. You can pass as many middlewares you need passing Express instance only once. 
 
 ## Installation
 
 ```
-npm install express-use-shortcut --save
+npm install express-use-shortcut
 ```
 
-Example without shortcut:
+## Path less example
+
+Path less example without shortcut:
 
 ```javascript
 const express = require('express')
@@ -28,7 +30,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 ```
 
-With shortcut:
+Path less example With shortcut:
 
 ```javascript
 const express = require('express')
@@ -50,4 +52,23 @@ use(
 )(app);
 ```
 
-You can pass as many middlewares you need passing express instance once. 
+## Middleware with paths
+
+You can pass the path and middleware within an array:
+
+```javascript
+use(
+    ['/api', yourMiddleware],
+    cookieParser(),
+    session(
+        { secret: 'homem avestruz', 
+          resave: true, 
+          saveUninitialized: true 
+        }
+    ),
+    passport.session()
+)(app);
+```
+
+
+

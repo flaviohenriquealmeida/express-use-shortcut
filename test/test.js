@@ -17,17 +17,34 @@ describe('useShortcut', () => {
         (req, res, next) => {
             req.secondMiddleware = 'SECOND';
             next();
-        }
+        },
+        ['/test', (req, res, next) => {
+            req.pathLessMiddleware  = 'PATHLESS';
+            next();
+        }]
     )(app);
+
+    
     
     app.get('/', (req, res) => 
         res.status(200)
             .end(`${req.firstMiddleware}-${req.secondMiddleware}`));
- 
-  it('should register two middlewares', () => 
+     
+    app.get('/test', (req, res) => 
+         res.status(200)
+            .end(`${req.pathLessMiddleware}`));
+          
+    it('should register two path less middlewares', () => 
         request
         .get('/')
         .expect(200)
         .then(response => 
-                assert.equal(response.text, 'FIRST-SECOND')));   
+            assert.equal(response.text, 'FIRST-SECOND'))); 
+ 
+    it('should register a full path middleware', () => 
+        request
+        .get('/test')
+        .expect(200)
+        .then(response => 
+                assert.equal(response.text, 'PATHLESS')));                 
 });
