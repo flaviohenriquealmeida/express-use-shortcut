@@ -1,7 +1,6 @@
 'use strict';
 
-const mocha = require('mocha')
-    , assert = require('assert')
+const assert = require('assert')
     , express = require('express')
     , app = express()
     , request = require('supertest')(app)
