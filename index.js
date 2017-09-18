@@ -7,8 +7,8 @@
  */
 module.exports = (...middlewares) => app => 
     middlewares.forEach(middleware => {
-        Array.isArray(middleware) 
-            ? app.use(middleware[0], middleware[1])
+        Array.isArray(middleware)
+            ? app.use(...middleware)
             : app.use(middleware);
-    })
+    });
         
