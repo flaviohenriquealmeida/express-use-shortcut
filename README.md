@@ -1,8 +1,5 @@
 # express-use-shortcut
 
-[![NPM Version][npm-image]][npm-url]
-[![NPM Downloads][downloads-image]][downloads-url]
-
 Helper function that avoids calling `app.use` multiple times for middlewares. You can pass as many middlewares you need passing Express instance only once. 
 
 ## Installation
