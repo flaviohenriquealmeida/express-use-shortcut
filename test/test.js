@@ -24,8 +24,6 @@ describe('useShortcut', () => {
         }]
     )(app);
 
-    
-    
     app.get('/', (req, res) => 
         res.status(200)
             .end(`${req.firstMiddleware}-${req.secondMiddleware}`));

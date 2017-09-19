@@ -1,11 +1,12 @@
 # express-use-shortcut
 
+**DEPRECATED: use [express-shortcut][1] instead.**
 Helper function that avoids calling `app.use` multiple times for middlewares. You can pass as many middlewares you need passing Express instance only once. 
 
 ## Installation
 
 ```
-npm install express-use-shortcut
+npm install express-use-shortcut --save
 ```
 
 ## The problem
@@ -71,6 +72,6 @@ use(
     passport.session()
 )(app);
 ```
-
+[1]: https://github.com/flaviohenriquealmeida/express-shortcut
 
 
